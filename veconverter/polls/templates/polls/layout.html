@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="JREnginar, veconverter22@gmail.com">
+    <meta name="abstract"
+          content="VeConverter allows you to download youtube videos you like or convert songs you like on youtube to mp3 format and save them to your computer.">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="copyright" content="We do not keep any user's data and in case of doubt, you can contact us.">
+    <meta name="description"
+          content="VeConverter is a fast and reliable converter that allows you to download youtube videos in mp4 or mp3 formats for free online."/>
+    <meta name="keywords" content="youtube,mp3,mp4,converter,downloader,free,online,music,video"/>
+    <meta name="publisher" content="PyCharm 2021.3"/>
+    <meta name="reply-to" content="veconverter22@gmail.com"/>
+    <meta name="robots" content="all"/>
+    <meta charset="UTF-8">
+    {% block title %} <title>VeConverter</title> {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    {% block style %}{% endblock %}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045774984639767"
+            crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X65ZW3XWN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-1X65ZW3XWN');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NMMW2WN');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 mx-auto form p-4">
+            <div class="text-center">
+                <a href="/">
+                    <img src="{% static 'vclogo.png' %}" height="100" alt="{{ title }}">
+                </a>
+                <h1 class="display-6 py-2">{{ title }}</h1>
+            </div>
+            <div class="px-2">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="pt-3">
+                <h3 class="text-center">VeConverter usage steps:</h3>
+                <p><b>1) </b>Paste the url you want into the valid field.</p>
+                <div class="text-center">
+                    <img class="img-responsive" src="{% static 'step-1.png' %}" alt="step 1">
+                </div>
+                <p><b>2) </b>Select the format to convert.</p>
+                <div class="text-center">
+                    <img class="img-responsive" src="{% static 'step-2.png' %}" alt="step 2">
+                </div>
+                <p><b>3) </b>Press the convert button.</p>
+                <div class="text-center">
+                    <img class="img-responsive" src="{% static 'step-3.png' %}" alt="step 3">
+                </div>
+                <p><b>4) </b>If you have chosen mp3 as the format to be converted, press the download button.</p>
+                <div class="text-center">
+                    <img class="img-responsive" src="{% static 'step-4.png' %}" alt="step 4">
+                </div>
+                <p>If you selected mp4 as the format to convert, select the resolution and press the download
+                    button.</p>
+                <div class="text-center">
+                    <img class="img-responsive" src="{% static 'step-41.png' %}" alt="step 41">
+                    <img class="img-responsive" src="{% static 'step-42.png' %}" alt="step 42">
+                </div>
+            </div>
+            <div class="text-center pt-5">
+                <a href="/privacy" class="font-weight-light text-center">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2045774984639767"
+        crossorigin="anonymous"></script>
+<!-- Side Ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2045774984639767"
+     data-ad-slot="9891518451"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMMW2WN"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "50883c733ae040ca9e1d64c216f8224e"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- End Google Tag Manager (noscript) -->
+{% block script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "polls/layout.html" %}
+{% block content %}
+    <form action="/convert" method="post" class="justify-content-center">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="video_url" class="sr-only">Youtube video url:</label>
+            <input type="url" class="form-control" name="url" id="video_url" aria-describedby="urlHelp"
+                   placeholder="Enter url" required>
+            <small id="urlHelp" class="form-text text-muted">Example:
+                https://www.youtube.com/watch?v=tgUCPhFekSQ</small>
+        </div>
+        <div class="form-group mt-3">
+            <label for="format">Type to download:</label>
+            <select name="format" id="format" class="form-control sr-only">
+                <option value="mp3">MP3 | Audio</option>
+                <option value="mp4">MP4 | Video</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-3 col-md-6">Convert</button>
+        </div>
+    </form>
+    <div class="pt-4">
+        <h3 class="text-center">Free youtube to Mp3/Mp4 converter - VeConverter</h3>
+        <p>By using our converter you can easily convert YouTube videos to mp3 (audio) or mp4 (video) files and download
+            them for free - this service works for all kinds of computers, tablets and mobile devices.</p>
+        <p>The YouTube mp3 videos are always converted in the highest available quality. Please note that we can only
+            convert videos up to a length of 90 minutes - the limitation is necessary, so the conversion of any video
+            will not take more than a couple of minutes.</p>
+        <p>Our service is free and does not require any software or registration. By using our service you are accepting
+            our terms of use.</p>
+        <p>To convert a video, copy the YouTube video URL into our converter, choose a format and click the convert
+            button. As soon as the conversion is finished you can download the file by clicking on the download
+            button.</p>
+        <h3 class="text-center">Youtube to Mp3/Mp4 VeConverter Features</h3>
+        <p>As a YouTube to mp3/mp4 converter, VeConverter supports many functions. With the increase of users, its
+            functions are also growing. At present, it has the following characteristics.</p>
+        <p><b>1. URL YouTube to mp3/mp4 converter: </b>You can input YouTube URL to VeConverter, click convert and you
+            can
+            easily get mp3 file. This is the most commonly used function of VeConverter. Many people search for
+            VeConverter in order
+            to complete the conversion of YouTube to mp3 and mp4 online. The whole download speed is very fast, and it
+            often does not take more than 5 seconds.</p>
+        <h3 class="text-center">Why are YouTube mp3 downloaders so popular?</h3>
+        <p>YouTube videos are often very helpful to us, such as working tutorials or game strategies, we can get what we
+            need in YouTube. But YouTube videos cannot be watched offline, which is very distressing to many people. In
+            addition, there are a lot of excellent music in YouTube videos, and the demand for YouTube mp3 is also very
+            large. VeConverter can easily help users get YouTube mp3, so YouTube mp3 downloader is very popular.</p>
+    </div>
+{% endblock %}

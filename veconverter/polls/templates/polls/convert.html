@@ -1,0 +1,86 @@
+{% extends "polls/layout.html" %}
+{% block content %}
+    <div class="justify-content-center text-center">
+        <div class="form-group">
+            <label for="video_url" class="sr-only">Youtube video url:</label>
+            <input type="url" class="form-control" name="url" id="video_url" aria-describedby="urlHelp"
+                   placeholder="Enter url" required readonly value="{{ url }}">
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="format">Converted to:</label>
+            {% if format == "mp3" %}
+                <input type="text" class="form-control" name="format" id="format" readonly value="mp3"/>
+            {% elif format == "mp4" %}
+                <input type="text" class="form-control" name="format" id="format" readonly value="mp4"/>
+            {% endif %}
+        </div>
+
+        {% if format == 'mp3' %}
+            <div class="text-center">
+                <button onclick="download('{{ name }}', '{{ name }}')" class="btn btn-success mt-3 col-md-5">
+                    Download
+                </button>
+                <a class="btn btn-primary mt-3 col-md-5" href="/">Convert new video link</a>
+            </div>
+        {% endif %}
+
+        {% if format == 'mp4' %}
+            <div class="form-group mt-3">
+                <label for="resolution">Video resolutions:</label>
+                <select class="form-control" id="resolution" name="resolution">
+                    {% for r in resolutions %}
+                        <option value="{{ r.itag }}">{{ r.resolution }} | {{ r.mime_type }}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="text-center">
+                    <button id="download" name="download" class="btn btn-success mt-3 col-md-5">
+                        Download
+                    </button>
+                    <a class="btn btn-primary mt-3 col-md-5" href="/">Convert new video link</a>
+                </div>
+            </div>
+        {% endif %}
+
+        <iframe class="form-group mt-3" width="490" height="300" src="{{ embed }}" title="{{ name }}" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#download').click(function () {
+                $('#download').text('Downloading...');
+                document.getElementById('download').disabled = true;
+                let url = $('#video_url').val();
+                let format = $('#format').val();
+                let resolution = $('#resolution').val();
+                let name = url.split('v=')[1];
+                url = '/convert/' + name + '/' + format + '/' + resolution;
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.status == 'success') {
+                            $('#download').text("Converted");
+                            download(data.file, data.name);
+                        }
+                    }
+                });
+            });
+        });
+
+        function download(file, name) {
+            var a = document.createElement("a");
+            a.href = '/download/' + name;
+            a.setAttribute("download", name);
+            a.click();
+        }
+
+    </script>
+{% endblock %}
